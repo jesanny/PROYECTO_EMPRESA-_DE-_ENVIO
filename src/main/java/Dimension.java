@@ -2,7 +2,7 @@
  * Medidas exteriores de un paquete, en centímetros.
  * No tiene métodos para modificar las medidas: una vez creada no cambia.
  *
- * @author
+ * @author jesanny
  */
 public class Dimension {
 

@@ -1,7 +1,7 @@
 /**
  * Un bulto físico que forma parte de un envío.
  *
- * @Jesanny
+ * @author jesanny
  */
 public class Paquete {
 
@@ -28,10 +28,8 @@ public class Paquete {
      * Sin duplicar el código del otro constructor.
      */
     public Paquete(double alto, double ancho, double largo, double peso) {
-        // TODO
-        dimension = alto, ancho, largo;
-        pesoReal = peso;
 
+        this(new Dimension(alto, ancho, largo), peso);
     }
 
     public Dimension getDimension() {
@@ -48,9 +46,15 @@ public class Paquete {
     /**
      * @return el volumen del paquete en cm3
      */
-    public double calcularVolumen() {
+    public double calcularVolumen(double volumen) {
         // TODO (lee la decisión de diseño del enunciado)
-        return 0;
+        //que Dimension tenga su propio método para calcular el volumen y Paquete se lo pida.
+
+         dimension.getAlto();
+         dimension.getAncho();
+         dimension.getLargo();
+        System.out.println("volumen en cm3: " +  dimension.getAlto() * dimension.getAncho() * dimension.getLargo() "cm3" );
+
     }
 
     /**
