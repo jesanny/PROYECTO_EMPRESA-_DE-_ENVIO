@@ -20,24 +20,31 @@ public class Dimension {
     }
 
     public double getAlto() {
+
         return alto;
     }
 
     public double getAncho() {
+
         return ancho;
     }
 
     public double getLargo() {
+
         return largo;
     }
 
+    public double calcularVolumen (){
+
+        return alto * ancho * largo;
+    }
+
     // DECISIÓN DE DISEÑO (ver enunciado): si decides que el volumen lo
+
     // calcula Dimension, añade aquí el método.
 
-    /**
-     * @return las medidas con el formato "40.0 x 30.0 x 50.0 cm"
-     */
     public String toString() {
+
         return alto + " x " + ancho + " x " + largo + " cm";
     }
 }
