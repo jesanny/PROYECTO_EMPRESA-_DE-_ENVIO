@@ -52,8 +52,8 @@ public class Paquete {
      * @return el peso volumétrico en kg (volumen / FACTOR_VOLUMETRICO)
      */
     public double calcularPesoVolumetrico() {
-        // TODO
-        return 0;
+
+        return calcularVolumen() / FACTOR_VOLUMETRICO ;
     }
 
     /**
