@@ -7,8 +7,6 @@ public class Paquete {
 
     /** cm3 que equivalen a 1 kg a efectos de facturación */
 
-
-
     public static final double FACTOR_VOLUMETRICO = 5000;
 
     private Dimension dimension;

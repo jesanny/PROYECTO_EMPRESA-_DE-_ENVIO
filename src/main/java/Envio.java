@@ -8,13 +8,12 @@
  */
 public class Envio {
 
-    // TODO constante de clase MAX_PAQUETES (ver enunciado)
-
-    // TODO atributos: código de seguimiento, código postal y tres paquetes
-
-   private int MAX_PAQUETES;
-   private int codigoPostal;
-   private int codigoSeguimiento;
+   private static final int MAX_PAQUETES = 3; //he usado private porque solo lo usaremos en esta clase y en el enuniado me pide la visibilidad mas restrictiva
+   private String codigoPostal;
+   private String codigoSeguimiento;
+   private Paquete paquete1;
+    private Paquete paquete2;
+    private Paquete paquete3;
 
     /**
      * Crea un envío sin paquetes.
@@ -23,26 +22,24 @@ public class Envio {
      * @param codigoPostal código postal del destino, p.ej. "36202"
      */
     public Envio(String codigo, String codigoPostal) {
-        // TODO
+
+        this.codigoPostal = codigoPostal;
+        codigoSeguimiento = codigo;
     }
 
     public String getCodigo() {
-        // TODO
-        return null;
+        return codigoSeguimiento;
     }
 
     public String getCodigoPostal() {
-        // TODO
-        return null;
+        return codigoPostal;
     }
 
-    /**
-     * @return cuántos paquetes tiene el envío (0 a 3)
-     * Para mejorar el algoritmo: Los paquetes se añaden siempre en orden, así que nunca hay huecos entre ellos.
-     */
     public int getNumeroPaquetes() {
-        // TODO (se calcula comprobando qué atributos d paquete son null)
-        return 0;
+        if (paquete1 == null) {return 0;}
+        if (paquete2 == null) {return 1;}
+        if (paquete3 == null) {return 2;}
+        return 3;
     }
 
     /**
