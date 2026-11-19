@@ -11,8 +11,7 @@ public class Paquete {
 
     public static final double FACTOR_VOLUMETRICO = 5000;
 
-    // TODO atributos: una Dimension y el peso real (kg)
-    private Dimension dimension; //bulto fisico compone de estas dos.
+    private Dimension dimension;
     private double pesoReal;
 
 
@@ -48,9 +47,6 @@ public class Paquete {
 
     }
 
-    /**
-     * @return el peso volumétrico en kg (volumen / FACTOR_VOLUMETRICO)
-     */
     public double calcularPesoVolumetrico() {
 
         return calcularVolumen() / FACTOR_VOLUMETRICO ;
@@ -62,15 +58,15 @@ public class Paquete {
      * @return el peso facturable en kg
      */
     public double calcularPesoFacturable() {
-        // TODO
-        return 0;
+            return Math.max(pesoReal, calcularPesoVolumetrico());
     }
 
     /**
      * @return por ejemplo "40.0 x 30.0 x 50.0 cm | 8.0 kg (facturable 12.0 kg)"
      */
     public String toString() {
-        // TODO
-        return "";
+
+        return dimension.toString() + " | " + getPeso() + " kg (facturable " + calcularPesoFacturable() + " kg)";
+
     }
 }
