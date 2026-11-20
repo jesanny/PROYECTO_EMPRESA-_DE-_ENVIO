@@ -149,7 +149,24 @@ public class Envio {
      * @return representación textual del envío (ver enunciado)
      */
     public String toString() {
-        // TODO
-        return "";
+
+        String texto = "Envío " + codigoSeguimiento + " -> CP " + codigoPostal + " (" + getNumeroPaquetes() + " paquete/s)";
+
+        if (paquete1 != null) {
+            texto += "\n  1. " + paquete1;
+        }
+
+         if (paquete2 != null) {
+            texto += "\n  2. " + paquete2;
+        }
+
+        if (paquete3 != null) {
+            texto += "\n  3. " + paquete3;
+        }
+
+        texto += "\n  Peso real: " + calcularPesoReal() + " kg | Peso facturable: " + calcularPesoFacturable() + " kg";
+
+        return texto;
+
     }
 }
