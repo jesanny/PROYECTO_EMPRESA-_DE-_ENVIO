@@ -27,7 +27,7 @@ public class Envio {
         codigoSeguimiento = codigo;
     }
 
-    public String getCodigo() {
+        public String getCodigo() {
         return codigoSeguimiento;
     }
 

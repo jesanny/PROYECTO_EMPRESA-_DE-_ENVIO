@@ -5,7 +5,9 @@
  */
 public class Paquete {
 
-    /** cm3 que equivalen a 1 kg a efectos de facturación */
+    /**
+     * cm3 que equivalen a 1 kg a efectos de facturación
+     */
 
     public static final double FACTOR_VOLUMETRICO = 5000;
 
@@ -14,8 +16,8 @@ public class Paquete {
 
 
     public Paquete(Dimension dimension, double peso) {
-        pesoReal= peso;
-       this.dimension= dimension;
+        pesoReal = peso;
+        this.dimension = dimension;
     }
 
 
@@ -42,7 +44,7 @@ public class Paquete {
 
     public double calcularPesoVolumetrico() {
 
-        return calcularVolumen() / FACTOR_VOLUMETRICO ;
+        return calcularVolumen() / FACTOR_VOLUMETRICO;
     }
 
 
