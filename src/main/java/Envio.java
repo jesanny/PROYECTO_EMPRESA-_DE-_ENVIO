@@ -85,8 +85,21 @@ public class Envio {
      * @return la suma de los pesos reales de los paquetes (kg)
      */
     public double calcularPesoReal() {
-        // TODO
-        return 0;
+        double total = 0;
+
+        if (paquete1 != null){
+            total += paquete1.getPeso();
+
+        }
+        if (paquete2 != null){
+            total += paquete2.getPeso();
+
+        }
+        if (paquete3 != null){
+            total += paquete3.getPeso();
+
+        }
+        return total;
     }
 
     /**
@@ -96,8 +109,20 @@ public class Envio {
      * @return el peso facturable del envío (kg enteros)
      */
     public double calcularPesoFacturable() {
-        // TODO
-        return 0;
+        double pesoTotal = 0;
+        if (paquete1 != null){
+            pesoTotal += paquete1.calcularPesoFacturable();
+
+        }
+        if (paquete2 != null){
+            pesoTotal += paquete2.calcularPesoFacturable();
+
+        }
+        if (paquete3 != null){
+            pesoTotal += paquete3.calcularPesoFacturable();
+
+        }
+        return Math.ceil(pesoTotal);
     }
 
     /**
@@ -105,8 +130,19 @@ public class Envio {
      * antes; null si el envío no tiene paquetes
      */
     public Paquete getPaqueteMasPesado() {
-        // TODO
-        return null;
+
+        if (paquete1 == null){
+            return null;
+        }
+        Paquete masPesado = paquete1;
+
+        if (paquete2 != null && paquete2.getPeso() > masPesado.getPeso()){
+             masPesado = paquete2;
+        }
+        if (paquete3 != null && paquete3.getPeso() > masPesado.getPeso()){
+            masPesado = paquete3;
+        }
+        return masPesado;
     }
 
     /**
