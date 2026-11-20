@@ -12,22 +12,16 @@ public class Envio {
    private String codigoPostal;
    private String codigoSeguimiento;
    private Paquete paquete1;
-    private Paquete paquete2;
-    private Paquete paquete3;
+   private Paquete paquete2;
+   private Paquete paquete3;
 
-    /**
-     * Crea un envío sin paquetes.
-     *
-     * @param codigo       código de seguimiento, p.ej. "PX00000001R"
-     * @param codigoPostal código postal del destino, p.ej. "36202"
-     */
     public Envio(String codigo, String codigoPostal) {
 
         this.codigoPostal = codigoPostal;
         codigoSeguimiento = codigo;
     }
 
-        public String getCodigo() {
+    public String getCodigo() {
         return codigoSeguimiento;
     }
 
@@ -43,14 +37,10 @@ public class Envio {
     }
 
     public boolean estaCompleto() {
-    return (getNumeroPaquetes () == MAX_PAQUETES);
+
+        return (getNumeroPaquetes () == MAX_PAQUETES);
     }
 
-    /**
-     * Añade un paquete al envío si no está completo.
-     *
-     * @return true si se ha añadido, false si el envío estaba completo
-     */
     public boolean addPaquete(Paquete paquete) {
 
         switch (getNumeroPaquetes()){
@@ -71,19 +61,11 @@ public class Envio {
         }
     }
 
-    /**
-     * Crea un paquete con las medidas y peso indicados y lo añade al envío.
-     *
-     * @return true si se ha añadido, false si el envío estaba completo
-     */
     public boolean addPaquete(double alto, double ancho, double largo, double peso) {
 
        return this.addPaquete(new Paquete(alto, ancho, largo, peso));
     }
 
-    /**
-     * @return la suma de los pesos reales de los paquetes (kg)
-     */
     public double calcularPesoReal() {
         double total = 0;
 
@@ -102,12 +84,6 @@ public class Envio {
         return total;
     }
 
-    /**
-     * Suma los pesos facturables de los paquetes y redondea hacia arriba
-     * al kilo entero.
-     *
-     * @return el peso facturable del envío (kg enteros)
-     */
     public double calcularPesoFacturable() {
         double pesoTotal = 0;
         if (paquete1 != null){
@@ -125,10 +101,6 @@ public class Envio {
         return Math.ceil(pesoTotal);
     }
 
-    /**
-     * @return el paquete de mayor peso real; si hay empate, el que se añadió
-     * antes; null si el envío no tiene paquetes
-     */
     public Paquete getPaqueteMasPesado() {
 
         if (paquete1 == null){
@@ -145,9 +117,6 @@ public class Envio {
         return masPesado;
     }
 
-    /**
-     * @return representación textual del envío (ver enunciado)
-     */
     public String toString() {
 
         String texto = "Envío " + codigoSeguimiento + " -> CP " + codigoPostal + " (" + getNumeroPaquetes() + " paquete/s)";

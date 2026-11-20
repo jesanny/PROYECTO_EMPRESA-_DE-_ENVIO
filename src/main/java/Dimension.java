@@ -10,9 +10,6 @@ public class Dimension {
     private double ancho;
     private double largo;
 
-    /**
-     * Crea una dimensión con las medidas indicadas (en cm).
-     */
     public Dimension(double alto, double ancho, double largo) {
         this.alto = alto;
         this.ancho = ancho;
@@ -38,10 +35,6 @@ public class Dimension {
 
         return alto * ancho * largo;
     }
-
-    // DECISIÓN DE DISEÑO (ver enunciado): si decides que el volumen lo
-
-    // calcula Dimension, añade aquí el método.
 
     public String toString() {
 
