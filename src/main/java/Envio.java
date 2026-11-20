@@ -1,4 +1,4 @@
-/**
+    /**
  * Un envío agrupa los paquetes que un cliente manda a un mismo destino.
  * Un envío admite como máximo tres paquetes.
  *
@@ -42,12 +42,8 @@ public class Envio {
         return 3;
     }
 
-    /**
-     * @return true si ya no se pueden añadir más paquetes
-     */
     public boolean estaCompleto() {
-        // TODO
-        return false;
+    return (getNumeroPaquetes () == MAX_PAQUETES);
     }
 
     /**
@@ -56,8 +52,23 @@ public class Envio {
      * @return true si se ha añadido, false si el envío estaba completo
      */
     public boolean addPaquete(Paquete paquete) {
-        // TODO
-        return false;
+
+        switch (getNumeroPaquetes()){
+        case 0:
+            paquete1 = paquete;
+            return true;
+
+        case 1:
+            paquete2 = paquete;
+            return true;
+
+        case 2:
+            paquete3 = paquete;
+            return true;
+
+        default:
+            return false;
+        }
     }
 
     /**
@@ -66,8 +77,8 @@ public class Envio {
      * @return true si se ha añadido, false si el envío estaba completo
      */
     public boolean addPaquete(double alto, double ancho, double largo, double peso) {
-        // TODO
-        return false;
+
+       return this.addPaquete(new Paquete(alto, ancho, largo, peso));
     }
 
     /**
