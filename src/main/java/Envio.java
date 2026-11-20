@@ -1,19 +1,19 @@
-    /**
+/**
  * Un envío agrupa los paquetes que un cliente manda a un mismo destino.
  * Un envío admite como máximo tres paquetes.
- *
+ * <p>
  * Ninguno de los métodos de esta clase escribe en pantalla.
  *
  * @author jesanny
  */
 public class Envio {
 
-   private static final int MAX_PAQUETES = 3; //he usado private porque solo lo usaremos en esta clase y en el enuniado me pide la visibilidad mas restrictiva
-   private String codigoPostal;
-   private String codigoSeguimiento;
-   private Paquete paquete1;
-   private Paquete paquete2;
-   private Paquete paquete3;
+    private static final int MAX_PAQUETES = 3; //he usado private porque solo lo usaremos en esta clase y en el enuniado me pide la visibilidad mas restrictiva
+    private String codigoPostal;
+    private String codigoSeguimiento;
+    private Paquete paquete1;
+    private Paquete paquete2;
+    private Paquete paquete3;
 
     public Envio(String codigo, String codigoPostal) {
 
@@ -30,54 +30,60 @@ public class Envio {
     }
 
     public int getNumeroPaquetes() {
-        if (paquete1 == null) {return 0;}
-        if (paquete2 == null) {return 1;}
-        if (paquete3 == null) {return 2;}
+        if (paquete1 == null) {
+            return 0;
+        }
+        if (paquete2 == null) {
+            return 1;
+        }
+        if (paquete3 == null) {
+            return 2;
+        }
         return 3;
     }
 
     public boolean estaCompleto() {
 
-        return (getNumeroPaquetes () == MAX_PAQUETES);
+        return (getNumeroPaquetes() == MAX_PAQUETES);
     }
 
     public boolean addPaquete(Paquete paquete) {
 
-        switch (getNumeroPaquetes()){
-        case 0:
-            paquete1 = paquete;
-            return true;
+        switch (getNumeroPaquetes()) {
+            case 0:
+                paquete1 = paquete;
+                return true;
 
-        case 1:
-            paquete2 = paquete;
-            return true;
+            case 1:
+                paquete2 = paquete;
+                return true;
 
-        case 2:
-            paquete3 = paquete;
-            return true;
+            case 2:
+                paquete3 = paquete;
+                return true;
 
-        default:
-            return false;
+            default:
+                return false;
         }
     }
 
     public boolean addPaquete(double alto, double ancho, double largo, double peso) {
 
-       return this.addPaquete(new Paquete(alto, ancho, largo, peso));
+        return this.addPaquete(new Paquete(alto, ancho, largo, peso));
     }
 
     public double calcularPesoReal() {
         double total = 0;
 
-        if (paquete1 != null){
+        if (paquete1 != null) {
             total += paquete1.getPeso();
 
         }
-        if (paquete2 != null){
+        if (paquete2 != null) {
             total += paquete2.getPeso();
 
         }
-        if (paquete3 != null){
+        if (paquete3 != null) {
             total += paquete3.getPeso();
 
         }
@@ -86,15 +92,15 @@ public class Envio {
 
     public double calcularPesoFacturable() {
         double pesoTotal = 0;
-        if (paquete1 != null){
+        if (paquete1 != null) {
             pesoTotal += paquete1.calcularPesoFacturable();
 
         }
-        if (paquete2 != null){
+        if (paquete2 != null) {
             pesoTotal += paquete2.calcularPesoFacturable();
 
         }
-        if (paquete3 != null){
+        if (paquete3 != null) {
             pesoTotal += paquete3.calcularPesoFacturable();
 
         }
@@ -103,15 +109,15 @@ public class Envio {
 
     public Paquete getPaqueteMasPesado() {
 
-        if (paquete1 == null){
+        if (paquete1 == null) {
             return null;
         }
         Paquete masPesado = paquete1;
 
-        if (paquete2 != null && paquete2.getPeso() > masPesado.getPeso()){
-             masPesado = paquete2;
+        if (paquete2 != null && paquete2.getPeso() > masPesado.getPeso()) {
+            masPesado = paquete2;
         }
-        if (paquete3 != null && paquete3.getPeso() > masPesado.getPeso()){
+        if (paquete3 != null && paquete3.getPeso() > masPesado.getPeso()) {
             masPesado = paquete3;
         }
         return masPesado;
@@ -125,7 +131,7 @@ public class Envio {
             texto += "\n  1. " + paquete1;
         }
 
-         if (paquete2 != null) {
+        if (paquete2 != null) {
             texto += "\n  2. " + paquete2;
         }
 

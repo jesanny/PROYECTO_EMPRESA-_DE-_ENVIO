@@ -31,7 +31,10 @@ public class Dimension {
         return largo;
     }
 
-    public double calcularVolumen (){
+    public double calcularVolumen() {
+
+        // Dimension tiene el alto, ancho y largo, así que ella es quien calcula el volumen.
+        // Paquete solo se lo pide, para no acceder a los datos de otra clase.
 
         return alto * ancho * largo;
     }
